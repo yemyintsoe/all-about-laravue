@@ -1,0 +1,8 @@
+# if there is no route match, go to 404.blade.php
+Route::any('{slug}', function(){
+	return view("404");
+});
+
+# the entry point of vue in laravel
+resources/js/app.js
+- regisgter vuejs here
