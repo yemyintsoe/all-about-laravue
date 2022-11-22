@@ -1,0 +1,64 @@
+ # after you have created a laravel-app
+ 
+ #1. Install vue 3 with vue-loader
+npm install vue@next vue-loader@next
+ 
+#2. Install @vitejs/plugin-vue
+npm i @vitejs/plugin-vue
+
+#3. Install npm
+npm install && npm run dev
+
+#4. modify vite.config.js
+
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+    plugins: [
+        vue(),
+        laravel([
+            'resources/css/app.css',
+            'resources/js/app.js',
+        ]),
+        refresh: true
+    ],
+});
+
+#5. resources/js/app.js
+import './bootstrap';
+import { createApp } from 'vue';
+import app from './App.vue'
+
+createApp(App).mount("#app")
+
+#6. Create App.vue file & add some codes
+resources>js>App.vue
+<template>
+    <h1>
+        Laravel & Vue with Vite
+    </h1>
+</template>
+
+#7. define root in blade file and @vite directive
+resources>views>welcome.blade.php
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Laravel 9 with vue 3 vite</title>
+
+    </head>
+    <body>
+        <div id="app"></div>
+        @vite('resources/js/app.js')
+    </body>
+</html>
+
+#8. Final step
+npm run dev
+php artisan serve
