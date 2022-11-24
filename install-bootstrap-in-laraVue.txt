@@ -1,0 +1,26 @@
+# bootstrap istallation
+
+npm install bootstrap@5.2.3
+
+// resources/js/app.js
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+
+
+// resources/view/welcome.blade.php
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LaraVue</title>
+    </head>
+    <body>
+        <h6 class="text-danger text-center">Laravel App</h6>
+        <div id="app"></div>
+        @vite('resources/js/app.js')
+    </body>
+</html>
+
+
+#whenn youu call app.js using @vite, bootstrap now is available for both laravel and vue components
