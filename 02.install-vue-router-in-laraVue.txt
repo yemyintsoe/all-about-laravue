@@ -4,6 +4,9 @@ $ npm install vue-router@4
 
 import Home from '../components/Home.vue'
 import About from '../components/About.vue'
+<or> lazy loading
+const Home = () => import('../components/Home.vue')
+const About = () => import('../components/About.vue')
 
 import { createRouter, createWebHistory } from 'vue-router'
 
